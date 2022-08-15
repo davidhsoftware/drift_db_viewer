@@ -1,6 +1,6 @@
-import 'package:drift/drift.dart';
-import 'package:flutter/material.dart';
 import 'package:db_viewer/src/model/filter/where/where_clause.dart';
+import 'package:drift_db_viewer/src/model/sql_types.dart';
+import 'package:flutter/material.dart';
 
 class DateWhereClause extends WhereClause {
   DateWhereType _dateWhereType = DateWhereType.EQUALS;
@@ -13,8 +13,7 @@ class DateWhereClause extends WhereClause {
 
   String get dateString => '${_date.day}/${_date.month}/${_date.year}';
 
-  String get timeString =>
-      '${_time.hour.toString().padLeft(2, '0')} : ${_time.minute.toString().padLeft(2, '0')}';
+  String get timeString => '${_time.hour.toString().padLeft(2, '0')} : ${_time.minute.toString().padLeft(2, '0')}';
 
   DateTime get date => _date;
 
@@ -30,8 +29,7 @@ class DateWhereClause extends WhereClause {
 
   @override
   String getSqlWhereClause() {
-    final sqlDate =
-        DateTime(date.year, date.month, date.day, time.hour, time.minute);
+    final sqlDate = DateTime(date.year, date.month, date.day, time.hour, time.minute);
     final dateTimeParser = DateTimeType();
     final sqlValue = dateTimeParser.mapToSqlVariable(sqlDate);
     if (dateWhereType == DateWhereType.BEFORE) {

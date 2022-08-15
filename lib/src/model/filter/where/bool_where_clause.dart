@@ -1,5 +1,5 @@
-import 'package:db_viewer/src/model/filter/where/where_clause.dart';
-import 'package:drift/drift.dart';
+import 'package:db_viewer/db_viewer.dart';
+import 'package:drift_db_viewer/src/model/sql_types.dart';
 
 class BoolWhereClause extends WhereClause {
   bool _value = true;
